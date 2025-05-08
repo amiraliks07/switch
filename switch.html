@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تشخیص تعطیلی روزهای هفته</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+        }
+        select, button {
+            padding: 8px 15px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>بررسی تعطیلی روزهای هفته</h1>
+    
+    <label for="daySelect">یک روز انتخاب کنید:</label>
+    <select id="daySelect">
+        <option value="1">شنبه</option>
+        <option value="2">یکشنبه</option>
+        <option value="3">دوشنبه</option>
+        <option value="4">سه‌شنبه</option>
+        <option value="5">چهارشنبه</option>
+        <option value="6">پنجشنبه</option>
+        <option value="7">جمعه</option>
+    </select>
+    
+    <button onclick="checkHoliday()">بررسی کن</button>
+    
+    <div id="result"></div>
+
+    <script>
+        function checkHoliday() {
+            // دریافت مقدار انتخاب شده از کمبوباکس
+            const dayNumber = document.getElementById("daySelect").value;
+            const resultElement = document.getElementById("result");
+            
+            let dayName, isHoliday;
+            
+            switch(dayNumber) {
+                case "1":
+                    dayName = "شنبه";
+                    isHoliday = false;
+                    break;
+                case "2":
+                    dayName = "یکشنبه";
+                    isHoliday = false;
+                    break;
+                case "3":
+                    dayName = "دوشنبه";
+                    isHoliday = false;
+                    break;
+                case "4":
+                    dayName = "سه‌شنبه";
+                    isHoliday = false;
+                    break;
+                case "5":
+                    dayName = "چهارشنبه";
+                    isHoliday = false;
+                    break;
+                case "6":
+                    dayName = "پنجشنبه";
+                    isHoliday = false;
+                    break;
+                case "7":
+                    dayName = "جمعه";
+                    isHoliday = true;
+                    break;
+                default:
+                    dayName = "نامشخص";
+                    isHoliday = false;
+            }
+            
+            // نمایش نتیجه
+            if(isHoliday) {
+                resultElement.innerHTML = `${dayName} تعطیل است! `;
+                resultElement.style.color = "green";
+            } else {
+                resultElement.innerHTML = `${dayName} تعطیل نیست. `;
+                resultElement.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
