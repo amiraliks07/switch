@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+}
+body{
+    text-align: center;
+    margin-top: 50px;
+}
+select, button{
+    padding: 8px 15px;
+}
+#result{
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
